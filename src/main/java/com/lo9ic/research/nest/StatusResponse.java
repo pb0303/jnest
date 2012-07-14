@@ -25,24 +25,24 @@ public class StatusResponse {
 /*
 {
 	"metadata": {
-		"01AA01AB411101F1": {
+		"DEVICESERIALNUMBER": {
 			"$version": -470698778,
 			"$timestamp": 1342052055000,
 			"last_connection": 1342052055062,
-			"last_ip": "67.165.219.219"
+			"last_ip": "EXTERNALIPADDRESS"
 		}
 	},
 	"track": {
-		"01AA01AB411101F1": {
+		"DEVICESERIALNUMBER": {
 			"$version": 46423532,
 			"$timestamp": 1342052055095,
 			"online": true,
 			"last_connection": 1342052055095,
-			"last_ip": "67.165.219.219"
+			"last_ip": "EXTERNALIPADDRESS"
 		}
 	},
 	"user_settings": {
-		"5005": {
+		"0000": {
 			"$version": 1864358976,
 			"$timestamp": 1340213094527,
 			"email_verified": true,
@@ -58,40 +58,40 @@ public class StatusResponse {
 		}
 	},
 	"structure": {
-		"df6b6720-1df0-11e1-8900-1231381520b0": {
+		"STRUCTUREIDENTIFIER": {
 			"$version": -1395287873,
 			"$timestamp": 1341869932000,
 			"away_timestamp": 1341869828,
 			"away": false,
-			"location": "Boulder, CO",
-			"name": "Home",
-			"postal_code": "80305",
+			"location": "CITYSTATE",
+			"name": "LOCATIONNAME",
+			"postal_code": "POSTALCODE",
 			"creation_time": 1322945617554,
-			"street_address": "623 Hartford Drive",
+			"street_address": "STREETADDRESS",
 			"devices": [
-				"device.01AA01AB411101F1"
+				"device.DEVICESERIALNUMBER"
 			],
-			"country_code": "US",
-			"user": "user.5005",
+			"country_code": "ISOCOUNTRYCODE",
+			"user": "user.0000",
 			"away_setter": 0
 		}
 	},
 	"link": {
-		"01AA01AB411101F1": {
+		"DEVICESERIALNUMBER": {
 			"$version": -1253763031,
 			"$timestamp": 1322945631000,
-			"structure": "structure.df6b6720-1df0-11e1-8900-1231381520b0"
+			"structure": "structure.STRUCTUREIDENTIFIER"
 		}
 	},
 	"device": {
-		"01AA01AB411101F1": {
+		"DEVICESERIALNUMBER": {
 			"$version": 1201892049,
 			"$timestamp": 1342051221000,
 			"heat_pump_comp_threshold": -31.5,
 			"learning_days_completed_cool": 0,
 			"backplate_bsl_version": "1.1",
 			"switch_system_off": true,
-			"local_ip": "10.0.1.5",
+			"local_ip": "LOCALIPADDRESS",
 			"away_temperature_high": 26.66663,
 			"current_schedule_mode": "HEAT",
 			"leaf_threshold_cool": 0,
@@ -122,7 +122,7 @@ public class StatusResponse {
 			"lower_safety_temp_enabled": true,
 			"has_fan": true,
 			"current_humidity": 53,
-			"postal_code": "80305",
+			"postal_code": "POSTALCODE",
 			"backplate_mono_version": "3.7.3",
 			"range_mode": false,
 			"nlclient_state": "",
@@ -135,7 +135,7 @@ public class StatusResponse {
 			"upper_safety_temp": 35,
 			"time_to_target_training": "training",
 			"target_time_confidence": 0,
-			"backplate_serial_number": "01BA01AB411102XY",
+			"backplate_serial_number": "BACKPLATESERIALNUMBER",
 			"forced_air": true,
 			"backplate_mono_info": "TFE (BP_DVT) 3.7.3 (ehs@ubuntu) 2012-03-07 10:43:21",
 			"leaf_threshold_heat": 17.086014,
@@ -149,8 +149,8 @@ public class StatusResponse {
 			"backplate_bsl_info": "BSL",
 			"user_brightness": "auto",
 			"leaf_away_low": 13.587738,
-			"serial_number": "01AA01AB411101F1",
-			"mac_address": "18b4300a325d",
+			"serial_number": "DEVICESERIALNUMBER",
+			"mac_address": "MACADDRESS",
 			"lower_safety_temp": 7,
 			"time_to_target": 0,
 			"equipment_type": "gas",
@@ -161,7 +161,7 @@ public class StatusResponse {
 		}
 	},
 	"schedule": {
-		"01AA01AB411101F1": {
+		"DEVICESERIALNUMBER": {
 			"$version": 108535350,
 			"$timestamp": 1341988370000,
 			"days": {
@@ -393,7 +393,7 @@ public class StatusResponse {
 		}
 	},
 	"shared": {
-		"01AA01AB411101F1": {
+		"DEVICESERIALNUMBER": {
 			"$version": -1896619651,
 			"$timestamp": 1342051221000,
 			"auto_away": 0,
@@ -417,7 +417,7 @@ public class StatusResponse {
 		}
 	},
 	"user_alert_dialog": {
-		"5005": {
+		"0000": {
 			"$version": -141125587,
 			"$timestamp": 1323898927000,
 			"dialog_id": "confirm-pairing",
@@ -425,12 +425,12 @@ public class StatusResponse {
 		}
 	},
 	"user": {
-		"5005": {
+		"0000": {
 			"$version": 1138848506,
 			"$timestamp": 1322945722000,
-			"name": "chad.corbin@gmail.com",
+			"name": "EMAILADDRESS",
 			"structures": [
-				"structure.df6b6720-1df0-11e1-8900-1231381520b0"
+				"structure.STRUCTUREIDENTIFIER"
 			]
 		}
 	}
