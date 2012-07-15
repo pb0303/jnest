@@ -1,6 +1,62 @@
-package com.lo9ic.research.nest;
+package com.lo9ic.research;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URLEncoder;
+import java.util.Enumeration;
+import java.util.Properties;
+
+import javax.net.ssl.HttpsURLConnection;
 
 public final class Util {
+	
+	public static StringBuffer getStringBufferFromResponse (HttpsURLConnection urlc) throws IOException {
+		
+		InputStream is = urlc.getInputStream();
+	    BufferedReader in = new BufferedReader(new InputStreamReader(is));
+        StringBuffer buffer = new StringBuffer();
+        String str;
+        
+        while ((str = in.readLine()) != null) {
+            buffer.append(str);
+        }
+        
+        in.close();
+		return buffer;
+	}
+	
+	public static StringBuffer getStringBufferFromResponse (HttpURLConnection urlc) throws IOException {
+		
+		InputStream is = urlc.getInputStream();
+	    BufferedReader in = new BufferedReader(new InputStreamReader(is));
+        StringBuffer buffer = new StringBuffer();
+        String str;
+        
+        while ((str = in.readLine()) != null) {
+            buffer.append(str);
+        }
+        
+        in.close();
+		return buffer;
+	}
+	
+	@SuppressWarnings("deprecation")
+	public static String makeQueryString (Properties properties) {
+		
+		String string = "";
+		Enumeration<?> e = properties.propertyNames();
+		
+		while (e.hasMoreElements()) {
+		      String key = (String) e.nextElement();
+		      string += URLEncoder.encode(key) + "=" + URLEncoder.encode(properties.getProperty(key)) + "&";
+		}
+		
+		return string;
+		
+	}
 	
 	public static String getFakeStatusResponse() {
 		String str = "";

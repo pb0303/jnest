@@ -1,19 +1,16 @@
 package com.lo9ic.research.nest;
 
-import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.util.Enumeration;
 import java.util.Properties;
+
 import javax.net.ssl.HttpsURLConnection;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.lo9ic.research.Util;
 
 public class JNest {
 
@@ -22,7 +19,7 @@ public class JNest {
 	private String uri = "https://home.nest.com/user/login";
 	private LoginResponse loginResponse;
 	private StatusResponse statusResponse;
-	private boolean isLoggedIn = false;
+	public boolean isLoggedIn = false;
 	public static Gson gson;
 	
 	public JNest () {
@@ -42,7 +39,7 @@ public class JNest {
 			return;
 		
 		Properties properties = credentials.toProperties();
-		String query = makeQueryString(properties);
+		String query = Util.makeQueryString(properties);
 		
 		try {
 			
@@ -261,32 +258,17 @@ public class JNest {
 			// do something
 		}
 	}
-	
-	public StringBuffer getStringBufferFromResponse (HttpsURLConnection urlc) throws IOException {
-		
-		InputStream is = urlc.getInputStream();
-	    BufferedReader in = new BufferedReader(new InputStreamReader(is));
-        StringBuffer buffer = new StringBuffer();
-        String str;
-        
-        while ((str = in.readLine()) != null) {
-            buffer.append(str);
-        }
-        
-        in.close();
-		return buffer;
-	}
 
 	public void handleLoginSuccess(HttpsURLConnection urlc) throws IOException {
 		
-	    StringBuffer buffer = getStringBufferFromResponse(urlc);
+	    StringBuffer buffer = Util.getStringBufferFromResponse(urlc);
         loginResponse = gson.fromJson(buffer.toString(), LoginResponse.class);
         isLoggedIn = true;
         
 	}
 	
 	public void handleStatusSuccess(HttpsURLConnection urlc) throws IOException {
-		StringBuffer buffer = getStringBufferFromResponse(urlc);
+		StringBuffer buffer = Util.getStringBufferFromResponse(urlc);
 		statusResponse = gson.fromJson(buffer.toString(), StatusResponse.class);
 		
 	}
@@ -309,21 +291,6 @@ public class JNest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	@SuppressWarnings("deprecation")
-	private String makeQueryString (Properties properties) {
-		
-		String string = "";
-		Enumeration<?> e = properties.propertyNames();
-		
-		while (e.hasMoreElements()) {
-		      String key = (String) e.nextElement();
-		      string += URLEncoder.encode(key) + "=" + URLEncoder.encode(properties.getProperty(key)) + "&";
-		}
-		
-		return string;
-		
 	}
 
 	public StatusResponse getStatusResponse() {
