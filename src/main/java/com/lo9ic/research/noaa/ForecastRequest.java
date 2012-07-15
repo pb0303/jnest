@@ -4,6 +4,7 @@ import java.util.Properties;
 
 public class ForecastRequest extends Properties {
 	
+	private static final long serialVersionUID = -4226083220894643847L;
 	public static String LATITUDE = "lat";
 	public static String LONGITUDE = "lon";
 	public static String PRODUCT = "product";
@@ -17,12 +18,12 @@ public class ForecastRequest extends Properties {
 	public static String WINDSPEED = "wspd";
 	public static String WINDDIRECTION = "wdir";
 	
-	public String product;
-	public String unit;
+	public String product = "time-series";
+	public String unit = "m";
 	
 	public ForecastRequest () {
-		this.setProperty(PRODUCT, "time-series");
-		this.setProperty(UNIT, "m");
+		this.setProperty(PRODUCT, product);
+		this.setProperty(UNIT, unit);
 		this.setProperty(BEGIN, "2004-01-1T00:00:00");
 		this.setProperty(END, "2020-04-20T00:00:00");
 		this.setProperty(TEMPERATURE, TEMPERATURE);
@@ -33,5 +34,8 @@ public class ForecastRequest extends Properties {
 		this.setProperty(WINDDIRECTION, WINDDIRECTION);
 	}
 	
-	//zipCodeList='$zipcode'&product=time-series&Unit=m&begin=2004-01-1T00:00:00&end=2020-04-20T00:00:00&temp=temp&dew=dew&sky=sky&rh=rh&wspd=wspd&wdir=wdir'
+	/*
+	* Here's the original request
+	* lat=40.635498&lon=-111.963999&product=time-series&Unit=m&begin=2004-01-1T00:00:00&end=2020-04-20T00:00:00&temp=temp&dew=dew&sky=sky&rh=rh&wspd=wspd&wdir=wdir'
+	*/
 }
